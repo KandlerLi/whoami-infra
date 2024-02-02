@@ -30,6 +30,6 @@ terraform {
 #   bucket = "kandler-li-test-bucket"
 # }
 
-output "hello" {
-  value = "Hello World"
+resource "aws_secretsmanager_secret" "example" {
+  name = "example"
 }
