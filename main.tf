@@ -26,6 +26,10 @@ terraform {
 }
 
 
-resource "aws_s3_bucket" "test_bucket" {
-  bucket = "kandler-li-test-bucket"
+# resource "aws_s3_bucket" "test_bucket" {
+#   bucket = "kandler-li-test-bucket"
+# }
+
+output "hello" {
+  value = "Hello World"
 }
