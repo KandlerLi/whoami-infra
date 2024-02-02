@@ -51,7 +51,7 @@ resource "aws_s3_bucket_public_access_block" "public_access_block" {
 
 resource "aws_s3_bucket_policy" "bucket_policy" {
   bucket = aws_s3_bucket.whoami_ui.id
-  policy = data.aws_iam_policy_document.allow_access_from_another_account.json
+  policy = data.aws_iam_policy_document.bucket_policy.json
 }
 
 data "aws_iam_policy_document" "bucket_policy" {
