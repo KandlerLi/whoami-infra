@@ -10,7 +10,7 @@ resource "aws_route53_record" "www" {
   records = [aws_eip.lb.public_ip]
 
   alias {
-    name                   = s3_bucket_website_configuration.config.website_endpoint
+    name                   = aws_s3_bucket_website_configuration.config.website_endpoint
     zone_id                = aws_s3_bucket.whoami_ui.hosted_zone_id
     evaluate_target_health = true
   }
