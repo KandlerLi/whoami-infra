@@ -6,8 +6,6 @@ resource "aws_route53_record" "www" {
   zone_id = aws_route53_zone.jkandler_de.zone_id
   name    = "www.jkandler.de"
   type    = "A"
-  ttl     = 300
-  records = [aws_eip.lb.public_ip]
 
   alias {
     name                   = aws_s3_bucket_website_configuration.config.website_endpoint
