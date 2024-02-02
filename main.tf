@@ -47,3 +47,21 @@ resource "aws_s3_bucket_public_access_block" "public_access_block" {
   ignore_public_acls      = false
   restrict_public_buckets = false
 }
+
+
+resource "aws_s3_bucket_policy" "bucket_policy" {
+  bucket = aws_s3_bucket.whoami_ui.id
+  policy = data.aws_iam_policy_document.allow_access_from_another_account.json
+}
+
+data "aws_iam_policy_document" "bucket_policy" {
+  statement {
+    actions = [
+      "s3:GetObject"
+    ]
+
+    resources = [
+      "${aws_s3_bucket.whoami_ui.arn}/*",
+    ]
+  }
+}
