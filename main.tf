@@ -26,10 +26,6 @@ terraform {
 }
 
 
-# resource "aws_s3_bucket" "test_bucket" {
-#   bucket = "kandler-li-test-bucket"
-# }
-
-resource "aws_secretsmanager_secret" "example" {
-  name = "example"
+resource "aws_s3_bucket" "example" {
+  bucket = "kandler-li-whoami-ui"
 }
