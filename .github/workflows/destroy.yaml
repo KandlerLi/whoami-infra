@@ -1,7 +1,6 @@
-name: deploy
+name: destroy
 
 on:
-  push:
   workflow_dispatch:
 
 jobs:
@@ -23,6 +22,6 @@ jobs:
           terraform_version: "1.6"
 
       - run: terraform init
-      - run: terraform plan -no-color
-      - run: terraform apply -auto-approve
+      - run: terraform plan -destroy -no-color
+      - run: terraform destroy -auto-approve
           
