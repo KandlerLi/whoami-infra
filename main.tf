@@ -17,6 +17,14 @@ provider "aws" {
   }
 }
 
+terraform {
+  backend "s3" {
+    bucket         = "kandler-li-tf-state"
+    key            = "whoami-infra"
+    dynamodb_table = "kandler-li-tf-lock"
+  }
+}
+
 
 resource "aws_s3_bucket" "state_file" {
   bucket = "kandler-li-test-bucket"
