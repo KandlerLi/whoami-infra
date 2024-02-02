@@ -26,6 +26,6 @@ terraform {
 }
 
 
-resource "aws_s3_bucket" "state_file" {
+resource "aws_s3_bucket" "test_bucket" {
   bucket = "kandler-li-test-bucket"
 }
