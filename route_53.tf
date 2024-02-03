@@ -14,7 +14,7 @@ resource "aws_route53_record" "www" {
   }
 }
 
-resource "aws_route53_record" "www" {
+resource "aws_route53_record" "root" {
   zone_id = aws_route53_zone.jkandler_de.zone_id
   name    = "jkandler.de"
   type    = "A"
