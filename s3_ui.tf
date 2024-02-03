@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "whoami_ui" {
-  bucket = "kandler-li-whoami-ui"
+  bucket = "www.jkandler.de"
 }
 
 resource "aws_s3_bucket_website_configuration" "config" {
