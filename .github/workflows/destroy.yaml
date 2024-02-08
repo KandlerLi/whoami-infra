@@ -22,6 +22,6 @@ jobs:
           terraform_version: "1.6"
 
       - run: terraform init
-      - run: terraform plan -destroy -no-color
+      - run: terraform plan -destroy
       - run: terraform destroy -auto-approve
           

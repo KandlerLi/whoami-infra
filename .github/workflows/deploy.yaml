@@ -23,6 +23,6 @@ jobs:
           terraform_version: "1.6"
 
       - run: terraform init
-      - run: terraform plan -no-color
+      - run: terraform plan
       - run: terraform apply -auto-approve
           
