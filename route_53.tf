@@ -22,6 +22,7 @@ resource "aws_cloudfront_distribution" "website_distribution" {
 
   enabled             = true
   default_root_object = "index.html"
+  price_class         = "PriceClass_100"
 
   default_cache_behavior {
     target_origin_id = "S3-website"
@@ -52,6 +53,8 @@ resource "aws_cloudfront_distribution" "website_distribution" {
     acm_certificate_arn = aws_acm_certificate.website_certificate.arn
     ssl_support_method  = "sni-only"
   }
+
+  depends_on = [aws_route53_record.website_certificate_validation]
 }
 
 resource "aws_acm_certificate" "website_certificate" {
