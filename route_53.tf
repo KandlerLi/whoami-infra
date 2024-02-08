@@ -28,7 +28,7 @@ resource "aws_route53_record" "root" {
 
 resource "aws_cloudfront_distribution" "website_distribution" {
   origin {
-    domain_name = aws_s3_bucket.website_bucket.bucket_regional_domain_name
+    domain_name = aws_s3_bucket.whoami_ui.bucket_regional_domain_name
     origin_id   = "S3-website"
   }
 
