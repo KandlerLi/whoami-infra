@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "whoami_ui" {
-  bucket = "www.jkandler.de"
+  bucket = var.domain
 }
 
 resource "aws_s3_bucket_website_configuration" "config" {
@@ -35,11 +35,18 @@ data "aws_iam_policy_document" "bucket_policy" {
     }
 
     actions = [
-      "s3:GetObject"
+      "s3:GetObject",
+      "s3:ListBucket"
     ]
 
     resources = [
       "${aws_s3_bucket.whoami_ui.arn}/*",
+      "${aws_s3_bucket.whoami_ui.arn}",
     ]
   }
+}
+
+resource "aws_s3_bucket_acl" "website" {
+  bucket = aws_s3_bucket.whoami_ui.id
+  acl    = "private"
 }
