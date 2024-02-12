@@ -46,7 +46,7 @@ data "aws_iam_policy_document" "bucket_policy" {
   }
 }
 
-resource "aws_s3_bucket_acl" "website" {
-  bucket = aws_s3_bucket.whoami_ui.id
-  acl    = "private"
-}
+# resource "aws_s3_bucket_acl" "website" {
+#   bucket = aws_s3_bucket.whoami_ui.id
+#   acl    = "private"
+# }
