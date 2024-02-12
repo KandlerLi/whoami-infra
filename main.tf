@@ -17,6 +17,18 @@ provider "aws" {
   }
 }
 
+provider "aws" {
+  alias  = "virginia"
+  region = "us-east-1"
+
+  default_tags {
+    tags = {
+      CreatedBy = "terraform"
+      Project   = "whoami-infra"
+    }
+  }
+}
+
 terraform {
   backend "s3" {
     bucket         = "kandler-li-tf-state"
