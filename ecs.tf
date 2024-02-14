@@ -27,7 +27,7 @@ resource "aws_ecs_task_definition" "default" {
   requires_compatibilities = ["FARGATE"]
   execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
   task_role_arn            = aws_iam_role.ecs_task_iam_role.arn
-  cpu                      = 0.25
+  cpu                      = 512
   memory                   = 512
 
   container_definitions = jsonencode([
