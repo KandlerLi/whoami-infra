@@ -3,6 +3,7 @@ resource "aws_vpc" "default" {
   enable_dns_support   = true
   enable_dns_hostnames = true
 }
+data "aws_availability_zones" "available" {}
 
 resource "aws_subnet" "private" {
   count             = var.az_count
