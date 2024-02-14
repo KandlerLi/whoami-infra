@@ -34,7 +34,7 @@ resource "aws_ecs_task_definition" "default" {
     {
       name      = "whoami_api"
       image     = "${aws_ecr_repository.kandlerli.repository_url}:latest"
-      cpu       = 0.25
+      cpu       = 512
       memory    = 512
       essential = true
       portMappings = [
