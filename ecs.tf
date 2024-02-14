@@ -28,15 +28,15 @@ resource "aws_ecs_task_definition" "default" {
   network_mode             = "awsvpc"
   execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
   task_role_arn            = aws_iam_role.ecs_task_iam_role.arn
-  cpu                      = 1024
-  memory                   = 2048
+  cpu                      = 256
+  memory                   = 512
 
   container_definitions = jsonencode([
     {
       name      = "whoami_api"
       image     = "${aws_ecr_repository.kandlerli.repository_url}:latest"
-      cpu       = 1024
-      memory    = 2048
+      cpu       = 256
+      memory    = 512
       essential = true
       portMappings = [
         {
