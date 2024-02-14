@@ -25,6 +25,7 @@ resource "aws_cloudwatch_log_group" "whoami_api" {
 resource "aws_ecs_task_definition" "default" {
   family                   = "whoami_api"
   requires_compatibilities = ["FARGATE"]
+  network_mode             = "awsvpc"
   execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
   task_role_arn            = aws_iam_role.ecs_task_iam_role.arn
   cpu                      = 512
