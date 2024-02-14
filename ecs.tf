@@ -62,4 +62,10 @@ resource "aws_ecs_service" "whoami_api_fargate" {
   cluster         = aws_ecs_cluster.whoami.id
   task_definition = aws_ecs_task_definition.whoami_api.arn
   desired_count   = 1
+
+  network_configuration {
+    security_groups  = [aws_security_group.ecs_container_instance.id]
+    subnets          = aws_subnet.private.*.id
+    assign_public_ip = false
+  }
 }
