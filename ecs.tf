@@ -22,7 +22,7 @@ resource "aws_cloudwatch_log_group" "whoami_api" {
 }
 
 
-resource "aws_ecs_task_definition" "default" {
+resource "aws_ecs_task_definition" "whoami_api" {
   family                   = "whoami_api"
   requires_compatibilities = ["FARGATE"]
   network_mode             = "awsvpc"
@@ -55,4 +55,11 @@ resource "aws_ecs_task_definition" "default" {
       }
     }
   ])
+}
+
+resource "aws_ecs_service" "whoami_api_fargate" {
+  name            = "whoami_api"
+  cluster         = aws_ecs_cluster.whoami.id
+  task_definition = aws_ecs_task_definition.whoami_api.arn
+  desired_count   = 1
 }
