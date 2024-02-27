@@ -1,5 +1,5 @@
 resource "aws_acm_certificate" "website_cert" {
-  domain_name       = var.domain
+  domain_name       = "*.${var.domain}"
   validation_method = "DNS"
   provider          = aws.virginia
   lifecycle {

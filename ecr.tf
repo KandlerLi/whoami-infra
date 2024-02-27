@@ -6,8 +6,3 @@ resource "aws_ecr_repository" "kandlerli" {
     scan_on_push = true
   }
 }
-
-moved {
-  from = aws_ecr_repository.foo
-  to   = aws_ecr_repository.kandlerli
-}
